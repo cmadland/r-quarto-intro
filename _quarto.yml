@@ -15,6 +15,9 @@ website:
        - data-types-commands.qmd
        - basic-analyses.qmd
        - quarto-intro.qmd
+  repo-url: https://github.com/cmadland/r-quarto-intro
+  repo-actions: [issue, source]
+    
 
 format:
   html:
@@ -27,6 +30,7 @@ format:
     code-link: true
     code-copy: true
     lightbox: true
+
 
 
 
