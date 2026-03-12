@@ -6,7 +6,7 @@ Quarto is designed specifically to allow you to create documents with R code emb
 
 For example, in the previous activities, we used the `income.csv` file to import into RStudio, and then we made some calculations and created some plots. 
 
-To see how a quarto file works, add a new file to your project, but instead of choosing an R script, choose "Quarto document".
+To see how a quarto file works, add a new file to your project, but instead of choosing an R script, choose "Quarto Document".
 
 ![](assets/quarto-1.png){fig-alt="new file menu in rstudio and posit cloud"}
 
@@ -14,7 +14,7 @@ Give the file a name and leave the other settings as they are.
 
 ![](assets/quarto-2.png){fig-alt="new quarto file options in rstudio and posit cloud"}
 
-I have highlighted a few items in the image below, including the 'REnder' button, the 'Source/Visual' option, and the notice that you need to install the `rmarkdown` package.
+I have highlighted a few items in the image below, including the 'Render' button, the 'Source/Visual' option, and the notice that you need to install the `rmarkdown` package.
 
 ![](assets/quarto-3.png){fig-alt="new quarto file options in rstudio and posit cloud"}
 
