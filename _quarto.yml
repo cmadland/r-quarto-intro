@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "R and Quarto for Beginners"
+  description: "A very brief introduction for EDCI681"
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+       - index.qmd
+       - getting-started.qmd
+       - rstudio-interface.qmd
+       - data-types-commands.qmd
+
+format:
+  html:
+    theme:
+      - darkly
+      # - brand
+    css: styles.css
+    toc: true
+    toc-depth: 5
+    code-link: true
+    code-copy: true
+    lightbox: true
+
+
+
+

@@ -1,0 +1,35 @@
+---
+title: "Welcome"
+---
+
+This site is a fork of [Introduction to R and summary statistics](https://uviclibraries.github.io/rstudio/) from the University of Victoria Libraries Digital Scholarship Commons. 
+
+Differences between the source site and this one include:
+
+- this site is built in Quarto, rather than Just The Docs;
+- this site uses Posit Cloud rather than R and RStudio downloads;
+- this site will often link to the source site rather than translate to Quarto...for now.
+
+## Why R and RStudio?
+
+R is a free, open-source software and programming language for statistical analysis. It is available for Windows, Mac, and Linux. It allows for reproducible statistical analysis, including advanced methods, as well as the production of publication-quality graphs. Because it is free and open-source, users can also develop their methods and algorithms and release for others to use through the cration of packages.
+
+RStudio is a free, open-source integrated development environment to facilitate the use of R (although it can also include other coding languages such as Python). RStudio also offers integration with other tools for reproducible research and data science such as Git, GitHub and Quarto.
+
+> RStudio does not replace R: You must install R before you can install or use RStudio. Instead, RStudio enhances the R programming experience with helpful features such as code completion, syntax highlighting, graph and table previews, and more. RStudio’s interface is organized so that the user can clearly view graphs, data tables, R code, and output all at the same time. - Kent State University Libraries
+
+### Who is this workshop for?
+
+This workshop is aimed at new R users who have some familiarity with tabular data and basic statistics (for example, using Excel), but have never used R to implement data analysis.
+
+### Learning objectives
+
+Participants will be able to do the following by the end of this workshop:
+
+- Sign up for a free account at posit.cloud.  
+- Use the RStudio interface to write and execute basic R commands.  
+- Describe the basic data types and data structures in R.  
+- Create and use vectors in R.  
+- Import and use data frames in R.  
+- Install and load packages in R.  
+- Generate descriptive statistics for a data set using R

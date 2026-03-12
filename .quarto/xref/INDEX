@@ -1,0 +1,23 @@
+{
+  "index.qmd": {
+    "index.html": "229d4455"
+  },
+  "about.qmd": {
+    "about.html": "474b67c1"
+  },
+  "activities-intro.qmd": {
+    "activities-intro.html": "4e3e862d"
+  },
+  "posit-cloud.qmd": {
+    "posit-cloud.html": "687240c3"
+  },
+  "getting-started.qmd": {
+    "getting-started.html": "3982836b"
+  },
+  "rstudio-interface.qmd": {
+    "rstudio-interface.html": "c9fc60a6"
+  },
+  "data-types-commands.qmd": {
+    "data-types-commands.html": "2d89031a"
+  }
+}

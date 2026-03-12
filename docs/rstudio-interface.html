@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>rstudio-interface – R and Quarto for Beginners</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-96e9ea3fe3ab1223fc52048f2d3b7472.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./rstudio-interface.html">Getting familiar with the RStudio Interface</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R and Quarto for Beginners</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting-started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting Started</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rstudio-interface.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Getting familiar with the RStudio Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-types-commands.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Types and Basic Commands</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#getting-familiar-with-the-rstudio-interface" id="toc-getting-familiar-with-the-rstudio-interface" class="nav-link active" data-scroll-target="#getting-familiar-with-the-rstudio-interface">Getting familiar with the RStudio Interface</a>
+  <ul>
+  <li><a href="#code-editor" id="toc-code-editor" class="nav-link" data-scroll-target="#code-editor">Code Editor</a></li>
+  <li><a href="#console" id="toc-console" class="nav-link" data-scroll-target="#console">Console</a></li>
+  <li><a href="#filesplotspackageshelp-pane" id="toc-filesplotspackageshelp-pane" class="nav-link" data-scroll-target="#filesplotspackageshelp-pane">Files/Plots/Packages/Help Pane</a></li>
+  <li><a href="#environmenthistory-pane" id="toc-environmenthistory-pane" class="nav-link" data-scroll-target="#environmenthistory-pane">Environment/History Pane</a></li>
+  <li><a href="#working-in-the-console" id="toc-working-in-the-console" class="nav-link" data-scroll-target="#working-in-the-console">Working in the Console</a></li>
+  <li><a href="#working-in-the-code-editor" id="toc-working-in-the-code-editor" class="nav-link" data-scroll-target="#working-in-the-code-editor">Working in the Code Editor</a>
+  <ul>
+  <li><a href="#tips-for-writing-code-in-an-r-script" id="toc-tips-for-writing-code-in-an-r-script" class="nav-link" data-scroll-target="#tips-for-writing-code-in-an-r-script">Tips for writing code in an R script:</a></li>
+  <li><a href="#running-your-code" id="toc-running-your-code" class="nav-link" data-scroll-target="#running-your-code">Running your code</a></li>
+  <li><a href="#deleting-objects" id="toc-deleting-objects" class="nav-link" data-scroll-target="#deleting-objects">Deleting objects</a></li>
+  </ul></li>
+  <li><a href="#a-final-note" id="toc-a-final-note" class="nav-link" data-scroll-target="#a-final-note">A final note</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="getting-familiar-with-the-rstudio-interface" class="level1">
+<h1>Getting familiar with the RStudio Interface</h1>
+<p><a href="assets/rstudio-01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/rstudio-01.png" class="img-fluid" alt="Code Editor, R console, Workplace and Plots"></a></p>
+<p>The RStudio interface is divided into several key areas, each serving a specific purpose.</p>
+<ul>
+<li>You can rearrange these windows and tabs to fit your personal preference by dragging them around the workspace. <!-- Make a video on rearranging windows and resetting?--></li>
+<li>When you rearrange the panes in RStudio on your computer, the layout stays as you set it across future sessions.</li>
+</ul>
+<section id="code-editor" class="level3">
+<h3 class="anchored" data-anchor-id="code-editor">Code Editor</h3>
+<p>The code editor is where you write and edit your R scripts. It includes syntax highlighting, code completion, and other helpful tools to make coding easier.</p>
+<p>The code you write in the editor is just text. RStudio will not execute the code unless you tell it to. To tell RStudio to execute the code, you need to send the code to the console (i.e., “source” or “run” the code). We will see how to do that in section 3.2.</p>
+</section>
+<section id="console" class="level3">
+<h3 class="anchored" data-anchor-id="console">Console</h3>
+<p>The console is where R code is executed.</p>
+<p>You can type commands directly into the console, like a scratch pad. It also displays outputs, messages, and errors.</p>
+<p>When you close RStudio, nothing that was written in the console is saved. If you want to be able to use your code in the future without needing to retype it, write it in the code editor, where it will be saved for future use (that is, provided you remember to save the file of your script).</p>
+<p>Therefore, you will not want to write your code directly in the console, unless you are just testing small code snippets and commands, or asking to see the results of commands already executed.</p>
+</section>
+<section id="filesplotspackageshelp-pane" class="level3">
+<h3 class="anchored" data-anchor-id="filesplotspackageshelp-pane">Files/Plots/Packages/Help Pane</h3>
+<p><strong>Files:</strong> Browse, open, and manage files in your working directory.</p>
+<p><strong>Plots:</strong> View graphical outputs from your R code, such as plots and graphs.</p>
+<p><strong>Packages:</strong> Install, update, and load R packages.</p>
+<p><strong>Help:</strong> Access R documentation and help files for:</p>
+<ul>
+<li>Functions and packages</li>
+<li>Example code</li>
+<li>Information about datasets built into R</li>
+<li>Information about other general R-related topics.</li>
+</ul>
+<p><strong>Viewer:</strong> Used to view local web content.</p>
+<ul>
+<li>We won’t be covering this</li>
+<li>E.g., web graphics generated using packages like
+<ul>
+<li>googleVis,</li>
+<li>htmlwidgets</li>
+<li>rCharts</li>
+<li>local web application created using Shiny, Rook, or OpenCPU.</li>
+</ul></li>
+<li>See more at the RStudio <a href="https://rstudio.github.io/rstudio-extensions/rstudio_viewer.html">Viewer Page</a>{:target=“_blank”}</li>
+</ul>
+<p><em>Presentation:</em> You can use RStudio to create presentations (see more <a href="https://fish497.github.io/website/lectures/week_09/lec_27_presentations.html">here</a>{:target=“_blank”}).</p>
+</section>
+<section id="environmenthistory-pane" class="level3">
+<h3 class="anchored" data-anchor-id="environmenthistory-pane">Environment/History Pane</h3>
+<p><strong>Environment:</strong> Shows your current workspace, including:</p>
+<ul>
+<li>Created objects (i.e.&nbsp;vectors, data frames, etc.)</li>
+<li>Functions you created or loaded</li>
+</ul>
+<p><strong>History:</strong> Records all the commands you’ve run in the current and previous sessions.</p>
+<p><strong>Connections:</strong> For more advanced users, used to manage and configure the integration of data sources with your projects.</p>
+<ul>
+<li>E.g., Oracle, SQL, Salesforce</li>
+</ul>
+<p><strong>Tutorial:</strong> Used to run tutorials that will help you learn and master the R programming language.</p>
+<ul>
+<li>See more at the RStudio <a href="https://rstudio.github.io/rstudio-extensions/rstudio-tutorials.html">Tutorial Page</a>{:target=“_blank”}</li>
+</ul>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Task 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Get familiar with the RStudio interface by identifying the 4 windows and switching between the tabs. This task is just for you to get comfortable. There is no solution for this task.</p>
+</div>
+</div>
+</section>
+<section id="working-in-the-console" class="level2">
+<h2 class="anchored" data-anchor-id="working-in-the-console">Working in the Console</h2>
+<p>The console is the action center where your code gets executed immediately. It’s great for quick experiments or testing ideas, but it doesn’t save your work!</p>
+<p>This is also where you install packages. Packages should be installed through the console, and loaded through the code editor.</p>
+<p>Each new line of code (aka. command line) begins with the angle bracket <code>&gt;</code> also known as the ‘prompt’ symbol.</p>
+<p>Commands will be written or run into the Console after the most recent angle bracket <code>&gt;</code>.</p>
+<p><strong>command line:</strong> lines of code in your console.</p>
+<p><strong>‘prompt’ symbol</strong> <code>&gt;</code> : Each new command starts with this.</p>
+<p><strong>execute:</strong> run your command by pressing the ‘enter’ or ‘return’ key on your keyboard.</p>
+<ul>
+<li>When you are ready to execute (‘run’) the command, type ‘enter’ or ‘return’ key on your keyboard.</li>
+<li>The output of the command will appear below your command.</li>
+</ul>
+<p><strong>Things to be mindful of:</strong></p>
+<p>You cannot execute a command until the previous command has been completely executed.</p>
+<p>If you don’t see the prompt symbol <code>&gt;</code>, one of two things is happening:</p>
+<ol type="1">
+<li>R is still processing your previous command, and you must wait for it to finish.<br>
+</li>
+<li>You might instead see the plus <code>+</code> symbol, which indicates that you have entered an incomplete command (e.g., you are missing a closing bracket).
+<ul>
+<li>If you see the <code>+</code> symbol, you must enter the remainder of the command before entering a new one.</li>
+<li>An error will occur if you write the <code>+</code> symbol into your command.</li>
+<li>Sometimes the output can be extensive and show more information than you expect (e.g., when you load in a package (we will discuss packages more in Activity 3).</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Task 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Try getting help!</strong></p>
+<p>To do this, you’ll run the <code>help()</code> function.</p>
+<p>For example, <code>help("mean")</code> will provide you with information about the mean function in RStudio. The help information will be displayed in the Help pane following your command.</p>
+<p><a href="assets/rstudio-02.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="assets/rstudio-02.gif" class="img-fluid"></a></p>
+<p>Now try getting information on vectors.</p>
+</div>
+</div>
+<details>
+<summary>
+Check your code
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get additional information about "vectors" (a data type), </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"vector"</span>) <span class="co"># then type 'enter' or 'return'</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="do">## starting httpd help server ... done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can get help on related content by selecting the dropdown list at the top of the Help tab.</p>
+</div>
+</div>
+</section>
+<section id="working-in-the-code-editor" class="level2">
+<h2 class="anchored" data-anchor-id="working-in-the-code-editor">Working in the Code Editor</h2>
+<p>The code editor is where you write and organize instructions in a script for R to follow. Think of it as a smart notepad that not only helps you learn and experiment but also allows you to save your work for later use. By writing code in the editor, you can easily reuse and adapt your scripts, and share them with collaborators</p>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Create a new R script.</strong></p>
+<ol type="1">
+<li>Click File &gt; New File &gt; R Script.<br>
+</li>
+<li>Save your script: A blank script opens in the code editor. Save it by clicking <code>File</code> &gt; <code>Save</code> (choose a name and location).
+<ul>
+<li>It is useful to store all related files in one folder, such as this script and any data you import/export here (see more on working directories in Section 3.1).<br>
+</li>
+</ul></li>
+<li>A blank script opens in the code editor. Start typing your code as you would in the console.</li>
+</ol>
+</div>
+</div>
+<section id="tips-for-writing-code-in-an-r-script" class="level3">
+<h3 class="anchored" data-anchor-id="tips-for-writing-code-in-an-r-script">Tips for writing code in an R script:</h3>
+<ul>
+<li>To add comments, begin your note with a hash <code>#</code>. R will execute each line until it encounters a hash, so nothing after a hash will be executed, making it great for adding comments.</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this is a comment</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>this is not a comment, and will cause an error</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>## Error in parse(text = input): &lt;text&gt;:1:6: unexpected symbol
+## 1: this is
+##          ^</code></pre>
+<ul>
+<li>Use meaningful names. Note: We will learn more about creating R objects in the following section (in R, we create and store information in what are called virtual “objects” that are stored in the R environment, or workspace)</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BAD naming</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>a.dim1 <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># height of plant 1</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>b.dim1 <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="co"># height of plant 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GOOD naming</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pl1.height <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pl2.height <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><p>Order your code logically.</p>
+<ul>
+<li>If you want to run your code all at once (perhaps using a different data source), it will run each line in order.</li>
+</ul></li>
+</ul>
+</section>
+<section id="running-your-code" class="level3">
+<h3 class="anchored" data-anchor-id="running-your-code">Running your code</h3>
+<p>Run (or source) a single line of code:</p>
+<ol type="1">
+<li>Click anywhere on the line you want to run.<br>
+</li>
+<li>Click the “Run” button at the top right corner of the script editor pane.</li>
+</ol>
+<p>Run (or source) multiple lines of code:</p>
+<ol type="1">
+<li>Highlight the lines you want to run.<br>
+</li>
+<li>Press Ctrl + Enter (Windows/Linux) or Cmd + Enter (Mac). Alternatively, you can click the “Run” button at the top right corner of the script editor pane.
+<ul>
+<li>Say you have created two separate R objects for different dimensions of a rectangle, as well as a third object that multiplies those two dimensions to calculate the area. You have also run all of the code line by line as you created each object (Ctrl + Enter (Windows/Linux) or Cmd + Enter (Mac)).</li>
+</ul></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>rectangle1.length <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># Line 1</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>rectangle1.width <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="co"># Line 2</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `*` is for multiplication</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>rectangle1.area <span class="ot">&lt;-</span> rectangle1.length <span class="sc">*</span> rectangle1.width <span class="co"># Line 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>You then edit <code>rectangle1.length</code> to <code>15</code> and <code>rectangle1.width</code> to <code>8</code>, but you don’t run each line as you edit it. Your code editor will look like this:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>rectangle1.length <span class="ot">&lt;-</span> <span class="dv">15</span> <span class="co"># Line 1</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>rectangle1.width <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="co"># Line 2</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>rectangle1.area <span class="ot">&lt;-</span> rectangle1.length <span class="sc">*</span> rectangle1.width <span class="co"># Line 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>However, if you do not run these lines of code (i.e., send them to the console to execute), R won’t know that you updated the values. You can check the Environment panel on the upper right to see the current value R associates with each object.<br>
+</li>
+<li>If you run only Line 1, the value of <code>rectangle1.length</code> will change, but <code>rectangle1.width</code> and <code>rectangle1.area</code> will not change.<br>
+</li>
+<li>If you run only Line 2, the value of <code>rectangle1.width</code> will change, but <code>rectangle1.length</code> and <code>rectangle1.area</code> will not change.<br>
+</li>
+<li>If you run only Line 3, no values will change. - If you select lines 1, 2, and 3, all values will change.</li>
+</ul>
+<p>Run (or source) the entire script:</p>
+<ol type="1">
+<li>Save the script (optional but recommended).<br>
+</li>
+<li>Click Source at the top-right corner of the script editor, or press Ctrl + Shift + Enter (Windows/Linux) or Cmd + Shift + Enter (Mac).</li>
+</ol>
+</section>
+<section id="deleting-objects" class="level3">
+<h3 class="anchored" data-anchor-id="deleting-objects">Deleting objects</h3>
+<p>Deleting the line of code from the script in the Code editor that created an object will not cause the object to be removed.</p>
+<p>To delete an object, use the <code>rm()</code> function in the console. Then, if you do not want to create the object again in the future, delete the line of code in the Code Editor.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Line 1 is deleted</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>rectangle1.width <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="co"># Line 2</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `*` is for multiplication</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>rectangle1.area <span class="ot">&lt;-</span> rectangle1.length <span class="sc">*</span> rectangle1.width <span class="co"># Line 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(rectangle1.length) <span class="co"># Run in the code editor to remove the object from your entire environment</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you remove an object that another object depends on, you will see the following error: <code>Error: object 'object name' not found</code>.</p>
+<p>For example, after removing <code>rectangle1.length</code> as above, try running line 3 of the code.</p>
+<p>Carefully consider the consequences of removing objects before doing so.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Test editing objects.</strong></p>
+<p>Copy and paste the following code into your new R script (in the code editor).</p>
+<ol type="1">
+<li><p>Edit the values for <code>rectangle1.length</code> and <code>rectangle1.width</code>, and run each line(s) of code in different orders to see what happens.</p></li>
+<li><p>Then try deleting different objects through the code editor and the console.</p></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rectangle1.length <span class="ot">&lt;-</span> <span class="dv">15</span> <span class="co"># Line 1</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>rectangle1.width <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="co"># Line 2</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>rectangle1.area <span class="ot">&lt;-</span> rectangle1.length <span class="sc">*</span> rectangle1.width <span class="co"># Line 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<p>We’ll get to different types of objects in the next activity.</p>
+</section>
+</section>
+<section id="a-final-note" class="level2">
+<h2 class="anchored" data-anchor-id="a-final-note">A final note</h2>
+<p>Understanding the differences between writing code in the Code Editor and in the Console takes time, but it’s essential for using R efficiently and effectively. To support that learning process, we recommend a small but important change to RStudio’s default settings.</p>
+<p>By default, RStudio often saves your entire workspace when you close the program and reloads it when you reopen it. Although this might seem convenient, we strongly discourage it for two main reasons: 1. <strong>It wastes memory</strong>. For large or complex analyses, saving your whole workspace can take up significant storage. A well-written script should let you recreate all your objects simply by rerunning the code, so you only need to save your script—a lightweight text file. 2. <strong>It slows your learning</strong>. Automatically reloading objects can make you less deliberate about what your script actually produces. Starting each session with a clean workspace encourages you to think clearly about which objects should be created, saved, or discarded</p>
+<p>To turn off this setting, you should: - Click on “Tools” in the toolbar, and select “Global Options…” - Under <strong>Workspace</strong>, uncheck “Restore .RData into workspace at startup” - In the “Save workspace to .RData on exit”, select “Never” - Click on “OK”. Done!</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As you work through these activities, remember to save your script(s) regularly. To do that, click on File &gt; Save (or hit cmd+s on Mac, or ctrl+s on Windows)</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
