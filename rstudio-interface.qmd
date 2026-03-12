@@ -65,10 +65,10 @@ graphs.
   - rCharts
   - local web application created using Shiny, Rook, or OpenCPU.
 - See more at the RStudio [Viewer
-  Page](https://rstudio.github.io/rstudio-extensions/rstudio_viewer.html){:target=“\_blank”}
+  Page](https://rstudio.github.io/rstudio-extensions/rstudio_viewer.html){target=“_blank”}
 
 *Presentation:* You can use RStudio to create presentations (see more
-[here](https://fish497.github.io/website/lectures/week_09/lec_27_presentations.html){:target=“\_blank”}).
+[here](https://fish497.github.io/website/lectures/week_09/lec_27_presentations.html){target=“_blank”}).
 
 ### Environment/History Pane
 
@@ -89,7 +89,7 @@ the integration of data sources with your projects.
 the R programming language.
 
 - See more at the RStudio [Tutorial
-  Page](https://rstudio.github.io/rstudio-extensions/rstudio-tutorials.html){:target=“\_blank”}
+  Page](https://rstudio.github.io/rstudio-extensions/rstudio-tutorials.html){target=“_blank”}
 
 
 

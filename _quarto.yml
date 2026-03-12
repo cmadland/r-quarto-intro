@@ -13,6 +13,7 @@ website:
        - getting-started.qmd
        - rstudio-interface.qmd
        - data-types-commands.qmd
+       - basic-analyses.qmd
 
 format:
   html:

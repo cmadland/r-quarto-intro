@@ -588,5 +588,5 @@ summary of how they look, here’s a good image:
 ::: {.callout-important}
 
 📍 As you work through these activities, remember to save your script(s)
-regularly. - File - Save (or cmd+s on Mac, ctrl+s on Windows)
+regularly. - File -> Save {{< kbd mac=Command-s win=Control-s >}}
 :::
