@@ -14,6 +14,7 @@ website:
        - rstudio-interface.qmd
        - data-types-commands.qmd
        - basic-analyses.qmd
+       - quarto-intro.qmd
 
 format:
   html:

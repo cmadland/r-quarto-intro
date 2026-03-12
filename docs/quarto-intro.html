@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome – R and Quarto for Beginners</title>
+<title>quarto-intro – R and Quarto for Beginners</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-96e9ea3fe3ab1223fc52048f2d3b7472.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -82,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto-intro.html">Introducing Quarto</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -109,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
@@ -139,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./quarto-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="./quarto-intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Introducing Quarto</span></a>
   </div>
 </li>
@@ -153,75 +156,61 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-r-and-rstudio" id="toc-why-r-and-rstudio" class="nav-link active" data-scroll-target="#why-r-and-rstudio">Why R and RStudio?</a>
-  <ul>
-  <li><a href="#who-is-this-workshop-for" id="toc-who-is-this-workshop-for" class="nav-link" data-scroll-target="#who-is-this-workshop-for">Who is this workshop for?</a></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  </ul></li>
+  <li><a href="#introducing-quarto" id="toc-introducing-quarto" class="nav-link active" data-scroll-target="#introducing-quarto">Introducing Quarto</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Welcome</h1>
+
+
+
+<section id="introducing-quarto" class="level1">
+<h1>Introducing Quarto</h1>
+<p>Quarto is a scientific and academic publishing platform that uses pandoc, a universal file converter, to render text-based markdown files into a wide range of outpur formats. Output options include HTML, PDF, ePub, MS Word, MS Powerpoint, MS Excel, and many others. HTML output options include websites (like this one), blogs, dashboards, books, and academic manuscripts (which can follow the formats of many journals).</p>
+<p>Quarto is designed specifically to allow you to create documents with R code embedded directly inside the document, inline with the text.</p>
+<p>For example, in the previous activities, we used the <code>income.csv</code> file to import into RStudio, and then we made some calculations and created some plots.</p>
+<p>To see how a quarto file works, add a new file to your project, but instead of choosing an R script, choose “Quarto document”.</p>
+<p><a href="assets/quarto-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="assets/quarto-1.png" class="img-fluid" alt="new file menu in rstudio and posit cloud"></a></p>
+<p>Give the file a name and leave the other settings as they are.</p>
+<p><a href="assets/quarto-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="assets/quarto-2.png" class="img-fluid" alt="new quarto file options in rstudio and posit cloud"></a></p>
+<p>I have highlighted a few items in the image below, including the ‘REnder’ button, the ‘Source/Visual’ option, and the notice that you need to install the <code>rmarkdown</code> package.</p>
+<p><a href="assets/quarto-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="assets/quarto-3.png" class="img-fluid" alt="new quarto file options in rstudio and posit cloud"></a></p>
+<p>The top of the quarto file contains a block of information set apart by three dashes before and after. This is called the YAML block (Yet Another Markup Language), and it sets a huge variety of options for your document. You can leave the YAML as it is for now.</p>
+<p>Once you have installed <code>rmarkdown</code>, click “Render” to get a preview of the html document created from your <code>quarto-demo.qmd</code> file.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
+<div class="callout-body-container">
+<p>Task 4-1</p>
+<p>Copy some of the code chunks from your previous tasks and embed them into the quarto file, then render again.</p>
+<p>Make sure your code chunks are inside an R code block.</p>
+</div>
+</div>
+</div>
+<details>
+<summary>
+Check your code.
+</summary>
+View the quarto file in the Source view to see the proper syntax.
+</details>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Task 4-2</p>
+<p>Load the <code>penguins</code> dataset (it is included in R) and see what you can learn about it.</p>
+</div>
+</div>
+</div>
+<p>There is MUCH more to learn about Quarto and how it supports reproducible research…stay tuned.</p>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>This site is a fork of <a href="https://uviclibraries.github.io/rstudio/">Introduction to R and summary statistics</a> from the University of Victoria Libraries Digital Scholarship Commons.</p>
-<p>Differences between the source site and this one include:</p>
-<ul>
-<li>this site is built in Quarto, rather than Just The Docs;</li>
-<li>this site uses Posit Cloud rather than R and RStudio downloads;</li>
-<li>this site will often link to the source site rather than translate to Quarto…for now.</li>
-</ul>
-<section id="why-r-and-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="why-r-and-rstudio">Why R and RStudio?</h2>
-<p>R is a free, open-source software and programming language for statistical analysis. It is available for Windows, Mac, and Linux. It allows for reproducible statistical analysis, including advanced methods, as well as the production of publication-quality graphs. Because it is free and open-source, users can also develop their methods and algorithms and release for others to use through the cration of packages.</p>
-<p>RStudio is a free, open-source integrated development environment to facilitate the use of R (although it can also include other coding languages such as Python). RStudio also offers integration with other tools for reproducible research and data science such as Git, GitHub and Quarto.</p>
-<blockquote class="blockquote">
-<p>RStudio does not replace R: You must install R before you can install or use RStudio. Instead, RStudio enhances the R programming experience with helpful features such as code completion, syntax highlighting, graph and table previews, and more. RStudio’s interface is organized so that the user can clearly view graphs, data tables, R code, and output all at the same time. - Kent State University Libraries</p>
-</blockquote>
-<section id="who-is-this-workshop-for" class="level3">
-<h3 class="anchored" data-anchor-id="who-is-this-workshop-for">Who is this workshop for?</h3>
-<p>This workshop is aimed at new R users who have some familiarity with tabular data and basic statistics (for example, using Excel), but have never used R to implement data analysis.</p>
-</section>
-<section id="learning-objectives" class="level3">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h3>
-<p>Participants will be able to do the following by the end of this workshop:</p>
-<ul>
-<li>Sign up for a free account at posit.cloud.<br>
-</li>
-<li>Use the RStudio interface to write and execute basic R commands.<br>
-</li>
-<li>Describe the basic data types and data structures in R.<br>
-</li>
-<li>Create and use vectors in R.<br>
-</li>
-<li>Import and use data frames in R.<br>
-</li>
-<li>Install and load packages in R.<br>
-</li>
-<li>Generate descriptive statistics for a data set using R</li>
-</ul>
-
-
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -626,6 +615,38 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
