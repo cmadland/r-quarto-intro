@@ -458,7 +458,7 @@ summary(income)
 
 
 
-## 4. Histograms
+## Histograms
 
 Histogram
 : A graph used for understanding and analysing the
