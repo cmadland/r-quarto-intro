@@ -1,6 +1,6 @@
 # Introducing Quarto
 
-Quarto is a scientific and academic publishing platform that uses pandoc, a universal file converter, to render text-based markdown files into a wide range of outpur formats. Output options include HTML, PDF, ePub, MS Word, MS Powerpoint, MS Excel, and many others. HTML output options include websites (like this one), blogs, dashboards, books, and academic manuscripts (which can follow the formats of many journals).
+Quarto is a scientific and academic publishing platform that uses pandoc, a universal file converter, to render text-based markdown files into a wide range of output formats. Output options include HTML, PDF, ePub, MS Word, MS Powerpoint, MS Excel, and many others. HTML output options include websites (like this one), blogs, dashboards, books, and academic manuscripts (which can follow the formats of many journals).
 
 Quarto is designed specifically to allow you to create documents with R code embedded directly inside the document, inline with the text.
 
