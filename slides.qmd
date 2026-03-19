@@ -53,7 +53,7 @@ Are there any questions about why researchers use RStudio instead of Excel.
 
 ## Quick Tour {.smaller}
 
-![RStudio](assets/rstudio-01.png){fig-alt="Layout of the RStudio interface"}
+![RStudio](assets/rstudio-01.png){.r-stretch fig-alt="Layout of the RStudio interface"}
 
 ---
 
