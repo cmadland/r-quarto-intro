@@ -1,7 +1,7 @@
 ---
 format: revealjs
 title: "R/Quarto Slides"
-footer: "Colin Madland | cmadland@uvic.ca"
+footer: "Colin Madland | cmadland@uvic.ca | [Return to Course](https://cmadland.github.io/r-quarto-intro)"
 lightbox: true
 ---
 
