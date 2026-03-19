@@ -25,5 +25,8 @@
   },
   "quarto-intro.qmd": {
     "quarto-intro.html": "6b263bc1"
+  },
+  "slides.qmd": {
+    "slides.html": "754e82a6"
   }
 }

@@ -306,6 +306,8 @@ pig1.large <- TRUE
 
 Now that you know which types of data R uses, let’s look at the different ways data can be structured in R. R uses these different structures to store data in objects.
 
+![](assets/rstudio-basics-data-structures.png){fig-alt="Data types in R"}
+
 ### Vectors
 
 A vector is a 1-dimensional list of items that are of the same data type (all character, all numeric, etc.)

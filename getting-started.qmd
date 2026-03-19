@@ -2,7 +2,7 @@
 
 Please review the following links:
 
-- If not attending a live (in-person or Zoom) session, read the [Introductory Slides](https://docs.google.com/presentation/d/1AJwcQcrGBG6PwnP8S1r-VwJpMAtZwCWSnI7Y7z6cR7Q/edit?usp=sharing){target="_blank"} 
+- If not attending a live (in-person or Zoom) session, read the [Introductory Slides](https://cmadland.github.io/r-quarto-intro/slides){target="_blank"} 
 - Video: [Resize Your Laptop Screen for Workshop Handouts (2 min)](https://www.youtube.com/watch?v=Igk5hZUfzN0){target="_blank"}
 
 ## Terminology
