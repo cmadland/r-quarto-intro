@@ -290,6 +290,16 @@
     ]
   },
   {
+    "objectID": "slides.html#troubleshooting",
+    "href": "slides.html#troubleshooting",
+    "title": "Slides",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\n# Create an object with values\n\nvalues &lt;- c(1, 2, 3, 4, 5)\n\n# Calculate the mean of `values`\n\nmean(value)",
+    "crumbs": [
+      "Slides"
+    ]
+  },
+  {
     "objectID": "getting-started.html",
     "href": "getting-started.html",
     "title": "Getting Started",

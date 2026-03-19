@@ -173,3 +173,17 @@ Learning to read and understand R errors is a great way to catalyze your R learn
 
 
 ---
+
+## Troubleshooting
+
+```
+# Create an object with values
+
+values <- c(1, 2, 3, 4, 5)
+
+# Calculate the mean of `values`
+
+mean(value)
+
+```
+
