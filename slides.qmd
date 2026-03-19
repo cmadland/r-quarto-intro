@@ -1,6 +1,6 @@
 ---
 format: revealjs
-title: Slides
+title: "R/Quarto Slides"
 footer: "Colin Madland | cmadland@uvic.ca"
 lightbox: true
 ---

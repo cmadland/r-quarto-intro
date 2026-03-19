@@ -172,131 +172,131 @@
   {
     "objectID": "slides.html#introduction-to-statistics-in-rstudio-and-quarto",
     "href": "slides.html#introduction-to-statistics-in-rstudio-and-quarto",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Introduction to Statistics in RStudio and Quarto",
     "text": "Introduction to Statistics in RStudio and Quarto\n\n\n\n\n\n\n\n\nThis presentation and workshop are forked from the Digital Scholarship Commons at UVic",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#why-not-ms-excel",
     "href": "slides.html#why-not-ms-excel",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Why not MS Excel?",
     "text": "Why not MS Excel?\n\nMade to handle larger datasets\n\nMore detailed and easily customizable visualizations\n\nMore advanced statistical analysis\n\nIndustry standard for data scientists\n\nCan more easily handle subsets of your data",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#why-not-ms-excel-1",
     "href": "slides.html#why-not-ms-excel-1",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Why not MS Excel?",
     "text": "Why not MS Excel?\n\nExcel: easier for basic functions and/or small amounts of data\n\nR: easier for complex functions and/or large amounts of data\n\nAre there any questions about why researchers use RStudio instead of Excel.",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#why-r",
     "href": "slides.html#why-r",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Why R?",
     "text": "Why R?\n\nR, RStudio, and Quarto are free and open-sourced!\n\nAdvanced data analysis, manipulation, and visualization\n\nReproducible research\n\nR has a supportive community and high quality learning resources online",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#quick-tour",
     "href": "slides.html#quick-tour",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Quick Tour",
     "text": "Quick Tour\n\nRStudio",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#code-editor",
     "href": "slides.html#code-editor",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Code Editor",
     "text": "Code Editor\n\n\n\nPlain text files\n\nCode is not executed\n\nTo execute code, need to send it to the console (run the code)\n\n\nScript file can be saved for later to recreate analysis",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#console",
     "href": "slides.html#console",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Console",
     "text": "Console\n\n\n\n\n\nWhere code is executed\n\nWhere outputs and errors messages appear\n\nCode that you don’t want to save for later can be typed directly in the console (e.g., installing a package)",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#environment",
     "href": "slides.html#environment",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Environment",
     "text": "Environment\n\n\n\nShows all the virtual objects you created in your R session\n\nCan be used to check if the commands have been properly executed",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#plots-files-packages",
     "href": "slides.html#plots-files-packages",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Plots, Files, Packages…",
     "text": "Plots, Files, Packages…\n\n\n\n\n\nWhere plots appear\n\nFile tab to navigate files\n\nHelp tab to see R and functions documentation\n\nPackage tab lists all installed packages",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#help-in-r",
     "href": "slides.html#help-in-r",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Help in R",
     "text": "Help in R\nGeneral Help\n- R Homepage : https://www.r-project.org/\n- Google is your friend!\n- GenAI tools can sometimes be helpful.\nCommand-specific Help (in console)\n- ?[command] brings up the documentation\n\n\n\n\n\n\nTip\n\n\nLearning to read and understand R errors is a great way to catalyze your R learning journey. Copy the error and paste into a web search.",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#activity-2---data-types-basic-commands",
     "href": "slides.html#activity-2---data-types-basic-commands",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Activity 2 - Data types & Basic commands",
     "text": "Activity 2 - Data types & Basic commands",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#activity-3---basic-data-analysis",
     "href": "slides.html#activity-3---basic-data-analysis",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Activity 3 - Basic Data Analysis",
     "text": "Activity 3 - Basic Data Analysis\n\n\n\n\n\nUploading your data\n\nSummarizing your data\n\nMean\n\nMedian\n\nStandard deviation\n\nMaking histograms",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
     "objectID": "slides.html#troubleshooting",
     "href": "slides.html#troubleshooting",
-    "title": "Slides",
+    "title": "R/Quarto Slides",
     "section": "Troubleshooting",
     "text": "Troubleshooting\n# Create an object with values\n\nvalues &lt;- c(1, 2, 3, 4, 5)\n\n# Calculate the mean of `values`\n\nmean(value)",
     "crumbs": [
-      "Slides"
+      "R/Quarto Slides"
     ]
   },
   {
