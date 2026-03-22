@@ -3,6 +3,7 @@ project:
   output-dir: docs
 
 website:
+  favicon: assets/hanko.png
   title: "R and Quarto for Beginners"
   description: "A very brief introduction for EDCI681"
   sidebar:
@@ -22,6 +23,7 @@ website:
 
 format:
   html:
+    axe: true
     theme:
       - darkly
       # - brand
